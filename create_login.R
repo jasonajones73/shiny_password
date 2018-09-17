@@ -39,9 +39,9 @@ db_connect <- function(){
   # If a user data table doesn't already exist, create one
   if(!(TBL_USER_DATA %in% dbListTables(db))){
     print("- Warning: No 'users' table found. Creating table...")
-    df <- data.frame(ID = as.numeric(character()),
-                     USER = character(),
-                     HASH = character(),
+    df <- data.frame(unique_id = character(),
+                     username = character(),
+                     password = character(),
                      stringsAsFactors = FALSE)
     dbWriteTable(db, TBL_USER_DATA, df)
   } 
